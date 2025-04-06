@@ -17,14 +17,7 @@ app = FastAPI(
     version='1.0.1'
 )
 
-# Middleware CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Puedes ajustar esto para producción
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"]
-)
+    
 
 # Crear tablas (solo si no existen)
 Base.metadata.create_all(bind=engine)
@@ -50,3 +43,18 @@ app.include_router(routerPromocion)
 app.include_router(routerPedidos)
 # Ruta de los Detalles
 app.include_router(routerDetalles)
+
+origins = [
+    "http://127.0.0.1:8000",  # Frontend local
+]
+# Middleware CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Puedes ajustar esto para producción
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
