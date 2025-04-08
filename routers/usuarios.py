@@ -35,7 +35,8 @@ def login(usuario: modeloAuth):
             "id": user.id,
             "nombre": user.nombre,
             "email": user.email,
-            "role": user_role.nombre
+            "role": user_role[0]
+
         })
     
     except Exception as e:

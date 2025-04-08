@@ -18,7 +18,7 @@ class Usuario(Base):
     email = Column(String(100), unique=True, nullable=False)
     telefono = Column(String(20), nullable=False)
     direccion = Column(Text, nullable=False)
-    contrasena = Column(String(255), nullable=False)
+    contraseña = Column(String(255), nullable=False)
     fecha_registro = Column(DateTime, default=datetime.utcnow)
 
     usuario_roles = relationship("UsuarioRol", back_populates="usuario")

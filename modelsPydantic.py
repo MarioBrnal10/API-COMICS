@@ -10,7 +10,7 @@ class modeloUsuario(BaseModel):
     email: EmailStr = Field(..., description="Correo electrónico válido")
     telefono: str = Field(..., min_length=10, max_length=20, description="Número telefónico con lada")
     direccion: str = Field(..., min_length=5, description="Dirección del usuario")
-    contrasena: str = Field(..., min_length=6, max_length=255, description="Contraseña segura")
+    contraseña: str = Field(..., min_length=6, max_length=255, description="Contraseña segura")
 
 class modeloUsuarioOut(BaseModel):
     id: int
