@@ -19,8 +19,6 @@ app = FastAPI(
 
     
 
-# Crear tablas (solo si no existen)
-Base.metadata.create_all(bind=engine)
 
 # Ruta de prueba
 @app.get('/', tags=['Hello'])
